@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CorePractise01.Contracts\CorePractise01.Contracts.csproj" />
+    <ProjectReference Include="..\CorePractise01.Domain\CorePractise01.Domain.csproj" />
+    <ProjectReference Include="..\CorePractise01.Persistence\CorePractise01.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
