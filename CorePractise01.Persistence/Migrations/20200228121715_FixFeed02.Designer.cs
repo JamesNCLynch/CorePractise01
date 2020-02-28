@@ -4,14 +4,16 @@ using CorePractise01.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CorePractise01.Persistence.Migrations
 {
     [DbContext(typeof(PractiseContext))]
-    partial class PractiseContextModelSnapshot : ModelSnapshot
+    [Migration("20200228121715_FixFeed02")]
+    partial class FixFeed02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

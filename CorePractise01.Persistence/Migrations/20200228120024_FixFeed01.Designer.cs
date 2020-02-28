@@ -4,14 +4,16 @@ using CorePractise01.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CorePractise01.Persistence.Migrations
 {
     [DbContext(typeof(PractiseContext))]
-    partial class PractiseContextModelSnapshot : ModelSnapshot
+    [Migration("20200228120024_FixFeed01")]
+    partial class FixFeed01
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,6 +26,9 @@ namespace CorePractise01.Persistence.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("AspNetUserIdId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(50)")
@@ -48,12 +53,9 @@ namespace CorePractise01.Persistence.Migrations
                     b.Property<int>("TotalSizeInMl")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("AspNetUserIdId");
 
                     b.ToTable("Feed");
                 });
@@ -260,9 +262,9 @@ namespace CorePractise01.Persistence.Migrations
 
             modelBuilder.Entity("CorePractise01.Persistence.Entities.Feed", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "User")
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "AspNetUserId")
                         .WithMany()
-                        .HasForeignKey("UserId");
+                        .HasForeignKey("AspNetUserIdId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

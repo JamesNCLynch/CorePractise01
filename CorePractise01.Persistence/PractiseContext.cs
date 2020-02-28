@@ -17,12 +17,12 @@ namespace CorePractise01.Persistence
         }
 
         public DbSet<Feed> Feeds { get; set; }
-        public DbSet<User> Users { get; set; }
+        //public DbSet<IdentityUser> Users { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Feed>().ToTable("Feed")
-                .HasOne(u => u.AspNetUserId);
+                .HasOne(u => u.User);
             //modelBuilder.Entity<Feed>()
             //    .HasOne(u => u.AspNetUserId);
 

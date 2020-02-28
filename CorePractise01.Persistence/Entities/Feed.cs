@@ -14,6 +14,6 @@ namespace CorePractise01.Persistence.Entities
         public int TotalSizeInMl { get; set; }
         public int TotalConsumedInMl { get; set; }
         public DateTime TimeOfFeed { get; set; }
-        public IdentityUser AspNetUserId { get; set; }
+        public IdentityUser User { get; set; }
     }
 }

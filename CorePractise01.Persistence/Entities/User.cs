@@ -5,8 +5,7 @@ using System.Text;
 
 namespace CorePractise01.Persistence.Entities
 {
-    public class User : IdentityUser
+    public class User : AuditDetails
     {
-        public virtual ICollection<Feed> Feeds { get; set; }
     }
 }

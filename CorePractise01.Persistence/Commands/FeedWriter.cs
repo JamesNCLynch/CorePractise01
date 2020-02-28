@@ -6,6 +6,7 @@ using CorePractise01.Contracts.DTO;
 using CorePractise01.Persistence.Entities;
 using AutoMapper;
 using NLog;
+using System.Linq;
 
 namespace CorePractise01.Persistence.Commands
 {
@@ -17,11 +18,12 @@ namespace CorePractise01.Persistence.Commands
 
         public void AddFeed(FeedDto newFeedDto)
         {
-            var newEntities = _mapper.Map<Feed>(newFeedDto);
+            var newEntity = _mapper.Map<Feed>(newFeedDto);
+            newEntity.User = _context.Users.FirstOrDefault(x => x.Id == newFeedDto.UserId);
 
             try
             {
-                _context.Feeds.Add(newEntities);
+                _context.Feeds.Add(newEntity);
                 _context.SaveChanges();
             }
             catch (Exception e)
